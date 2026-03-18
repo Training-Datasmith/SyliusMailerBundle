@@ -17,11 +17,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-final class SenderDataDumper implements DumperInterface
+final readonly class SenderDataDumper implements DumperInterface
 {
     public function __construct(
-        private readonly string $senderName,
-        private readonly string $senderEmail,
+        private string $senderName,
+        private string $senderEmail,
     ) {
     }
 

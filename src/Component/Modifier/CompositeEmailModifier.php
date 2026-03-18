@@ -15,7 +15,7 @@ namespace Sylius\Component\Mailer\Modifier;
 
 use Sylius\Component\Mailer\Model\EmailInterface;
 
-final class CompositeEmailModifier implements EmailModifierInterface
+final readonly class CompositeEmailModifier implements EmailModifierInterface
 {
     /**
      * @param EmailModifierInterface[] $emailModifiers

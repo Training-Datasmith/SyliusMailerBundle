@@ -20,12 +20,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Loader\LoaderInterface;
 use Webmozart\Assert\Assert;
 
-final class EmailDetailsDumper implements EmailDetailDumperInterface
+final readonly class EmailDetailsDumper implements EmailDetailDumperInterface
 {
     public function __construct(
-        private readonly array $emails,
-        private readonly ?TranslatorInterface $translator,
-        private readonly LoaderInterface $templateLoader,
+        private array $emails,
+        private ?TranslatorInterface $translator,
+        private LoaderInterface $templateLoader,
     ) {
     }
 

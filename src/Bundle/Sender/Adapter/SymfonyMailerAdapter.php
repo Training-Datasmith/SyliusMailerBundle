@@ -28,7 +28,7 @@ use Webmozart\Assert\Assert;
 
 final class SymfonyMailerAdapter extends AbstractAdapter implements CcAwareAdapterInterface
 {
-    public function __construct(private MailerInterface $mailer)
+    public function __construct(private readonly MailerInterface $mailer)
     {
     }
 

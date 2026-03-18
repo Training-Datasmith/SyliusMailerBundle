@@ -19,11 +19,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-final class EmailsListDumper implements DumperInterface
+final readonly class EmailsListDumper implements DumperInterface
 {
     public function __construct(
-        private readonly array $emails,
-        private readonly ?TranslatorInterface $translator,
+        private array $emails,
+        private ?TranslatorInterface $translator,
     ) {
     }
 

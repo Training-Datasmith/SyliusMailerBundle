@@ -21,7 +21,7 @@ use Sylius\Component\Mailer\Sender\Adapter\AdapterInterface as SenderAdapterInte
 use Sylius\Component\Mailer\Sender\Adapter\CcAwareAdapterInterface;
 use Webmozart\Assert\Assert;
 
-final class Sender implements SenderInterface
+final readonly class Sender implements SenderInterface
 {
     public function __construct(
         private RendererAdapterInterface $rendererAdapter,
