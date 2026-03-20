@@ -65,13 +65,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Sylius\\Bundle\\MailerBundle\\": "src/Bundle/",
+            "Sylius\\Bundle\\Mailer_Bundle\\": "src/Bundle/",
             "Sylius\\Component\\Mailer\\": "src/Component/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sylius\\Bundle\\MailerBundle\\Tests\\": "tests/",
+            "Sylius\\Bundle\\Mailer_Bundle\\Tests\\": "tests/",
             "App\\": "tests/Application/"
         }
     },
