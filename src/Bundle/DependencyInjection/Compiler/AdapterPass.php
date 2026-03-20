@@ -8,40 +8,29 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare (strict_types=1);
+namespace Sylius\Bundle\Mailer_Bundle\Dependency_Injection\Compiler;
 
-declare(strict_types=1);
-
-namespace Sylius\Bundle\MailerBundle\DependencyInjection\Compiler;
-
-use Symfony\Component\DependencyInjection\Alias;
-use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-
-abstract class AdapterPass implements CompilerPassInterface
+use Symfony\Component\Dependency_Injection\Alias;
+use Symfony\Component\Dependency_Injection\Compiler\Compiler_Pass_Interface;
+use Symfony\Component\Dependency_Injection\Container_Builder;
+abstract class Adapter_Pass implements Compiler_Pass_Interface
 {
-    public function processAdapters(
-        ContainerBuilder $container,
-        string $adapterAlias,
-        string $defaultAdapterId,
-        array $adaptersWithDependency,
-    ): void {
-        foreach ($adaptersWithDependency as $adapter => $dependency) {
+    public function process_adapters(Container_Builder $container, string $adapter_alias, string $default_adapter_id, array $adapters_with_dependency): void
+    {
+        foreach ($adapters_with_dependency as $adapter => $dependency) {
             if (!$container->has($dependency)) {
-                $container->removeDefinition($adapter);
+                $container->remove_definition($adapter);
             }
         }
-
-        if ($container->hasAlias($adapterAlias)) {
+        if ($container->has_alias($adapter_alias)) {
             return;
         }
-
-        $defaultAdapters = array_keys($adaptersWithDependency);
-        $defaultAdapters[] = $defaultAdapterId;
-
-        foreach ($defaultAdapters as $adapter) {
-            if ($container->hasDefinition($adapter)) {
-                $container->setAlias($adapterAlias, new Alias($adapter, true));
-
+        $default_adapters = array_keys($adapters_with_dependency);
+        $default_adapters[] = $default_adapter_id;
+        foreach ($default_adapters as $adapter) {
+            if ($container->has_definition($adapter)) {
+                $container->set_alias($adapter_alias, new Alias($adapter, true));
                 return;
             }
         }

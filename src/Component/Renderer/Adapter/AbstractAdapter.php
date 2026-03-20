@@ -8,18 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Sylius\Component\Mailer\Renderer\Adapter;
 
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-
-abstract class AbstractAdapter implements AdapterInterface
+use Symfony\Component\Event_Dispatcher\Event_Dispatcher_Interface;
+abstract class Abstract_Adapter implements Adapter_Interface
 {
-    protected ?EventDispatcherInterface $dispatcher = null;
-
-    public function setEventDispatcher(EventDispatcherInterface $dispatcher): void
+    protected ?Event_Dispatcher_Interface $dispatcher = null;
+    public function set_event_dispatcher(Event_Dispatcher_Interface $dispatcher): void
     {
         $this->dispatcher = $dispatcher;
     }

@@ -8,24 +8,20 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare (strict_types=1);
+namespace Sylius\Bundle\Mailer_Bundle;
 
-declare(strict_types=1);
-
-namespace Sylius\Bundle\MailerBundle;
-
-use Sylius\Bundle\MailerBundle\DependencyInjection\Compiler\RendererAdapterPass;
-use Sylius\Bundle\MailerBundle\DependencyInjection\Compiler\SenderAdapterPass;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-final class SyliusMailerBundle extends Bundle
+use Sylius\Bundle\Mailer_Bundle\Dependency_Injection\Compiler\Renderer_Adapter_Pass;
+use Sylius\Bundle\Mailer_Bundle\Dependency_Injection\Compiler\Sender_Adapter_Pass;
+use Symfony\Component\Dependency_Injection\Compiler\Pass_Config;
+use Symfony\Component\Dependency_Injection\Container_Builder;
+use Symfony\Component\Http_Kernel\Bundle\Bundle;
+final class Sylius_Mailer_Bundle extends Bundle
 {
-    public function build(ContainerBuilder $container): void
+    public function build(Container_Builder $container): void
     {
         parent::build($container);
-
-        $container->addCompilerPass(new SenderAdapterPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -256);
-        $container->addCompilerPass(new RendererAdapterPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, -256);
+        $container->add_compiler_pass(new Sender_Adapter_Pass(), Pass_Config::TYPE_BEFORE_OPTIMIZATION, -256);
+        $container->add_compiler_pass(new Renderer_Adapter_Pass(), Pass_Config::TYPE_BEFORE_OPTIMIZATION, -256);
     }
 }

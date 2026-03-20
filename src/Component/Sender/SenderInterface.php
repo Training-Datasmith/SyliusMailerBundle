@@ -8,12 +8,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Sylius\Component\Mailer\Sender;
 
-interface SenderInterface
+interface Sender_Interface
 {
     /**
      * @deprecated using this method without 2 last arguments ($ccRecipients and $bccRecipients) is deprecated since 1.8 and won't be possible since 2.0
@@ -24,11 +22,5 @@ interface SenderInterface
      * @param string[] $ccRecipients A list of email addresses set as carbon copy
      * @param string[] $bccRecipients A list of email addresses set as blind carbon copy
      */
-    public function send(
-        string $code,
-        array $recipients,
-        array $data = [],
-        array $attachments = [],
-        array $replyTo = [],
-    ): void;
+    public function send(string $code, array $recipients, array $data = [], array $attachments = [], array $reply_to = []): void;
 }

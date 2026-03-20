@@ -8,22 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare (strict_types=1);
+namespace Sylius\Bundle\Mailer_Bundle\Renderer\Adapter;
 
-declare(strict_types=1);
-
-namespace Sylius\Bundle\MailerBundle\Renderer\Adapter;
-
-use Sylius\Component\Mailer\Model\EmailInterface;
-use Sylius\Component\Mailer\Renderer\Adapter\AbstractAdapter;
-use Sylius\Component\Mailer\Renderer\RenderedEmail;
-
-final class EmailDefaultAdapter extends AbstractAdapter
+use Sylius\Component\Mailer\Model\Email_Interface;
+use Sylius\Component\Mailer\Renderer\Adapter\Abstract_Adapter;
+use Sylius\Component\Mailer\Renderer\Rendered_Email;
+final class Email_Default_Adapter extends Abstract_Adapter
 {
-    public function render(EmailInterface $email, array $data = []): RenderedEmail
+    public function render(Email_Interface $email, array $data = []): Rendered_Email
     {
-        throw new \RuntimeException(sprintf(
-            'You need to configure an adapter to render the email. Take a look at %s (requires "symfony/twig-bundle" library).',
-            EmailTwigAdapter::class,
-        ));
+        throw new \RuntimeException(sprintf('You need to configure an adapter to render the email. Take a look at %s (requires "symfony/twig-bundle" library).', Email_Twig_Adapter::class));
     }
 }

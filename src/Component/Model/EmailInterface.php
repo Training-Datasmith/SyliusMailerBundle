@@ -8,42 +8,25 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Sylius\Component\Mailer\Model;
 
-interface EmailInterface
+interface Email_Interface
 {
-    public function getCode(): ?string;
-
-    public function setCode(string $code): void;
-
-    public function isEnabled(): bool;
-
-    public function setEnabled(bool $enabled): void;
-
+    public function get_code(): ?string;
+    public function set_code(string $code): void;
+    public function is_enabled(): bool;
+    public function set_enabled(bool $enabled): void;
     public function enable(): void;
-
     public function disable(): void;
-
-    public function getSubject(): ?string;
-
-    public function setSubject(string $subject): void;
-
-    public function getContent(): ?string;
-
-    public function setContent(string $content): void;
-
-    public function getTemplate(): ?string;
-
-    public function setTemplate(string $template): void;
-
-    public function getSenderName(): ?string;
-
-    public function setSenderName(string $senderName): void;
-
-    public function getSenderAddress(): ?string;
-
-    public function setSenderAddress(string $senderAddress): void;
+    public function get_subject(): ?string;
+    public function set_subject(string $subject): void;
+    public function get_content(): ?string;
+    public function set_content(string $content): void;
+    public function get_template(): ?string;
+    public function set_template(string $template): void;
+    public function get_sender_name(): ?string;
+    public function set_sender_name(string $sender_name): void;
+    public function get_sender_address(): ?string;
+    public function set_sender_address(string $sender_address): void;
 }

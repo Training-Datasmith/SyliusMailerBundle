@@ -8,20 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare (strict_types=1);
+namespace Symfony\Component\Dependency_Injection\Loader\Configurator;
 
-declare(strict_types=1);
-
-namespace Symfony\Component\DependencyInjection\Loader\Configurator;
-
-use Sylius\Component\Mailer\Modifier\CompositeEmailModifier;
-use Sylius\Component\Mailer\Modifier\EmailModifierInterface;
-
-return static function (ContainerConfigurator $container): void {
+use Sylius\Component\Mailer\Modifier\Composite_Email_Modifier;
+use Sylius\Component\Mailer\Modifier\Email_Modifier_Interface;
+return static function (Container_Configurator $container): void {
     $services = $container->services();
     $services->defaults()->public();
-
-    $services->set(EmailModifierInterface::class, CompositeEmailModifier::class)
-        ->args([
-            tagged_iterator('sylius_mailer.email_modifier'),
-        ]);
+    $services->set(Email_Modifier_Interface::class, Composite_Email_Modifier::class)->args([tagged_iterator('sylius_mailer.email_modifier')]);
 };

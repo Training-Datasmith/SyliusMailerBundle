@@ -8,15 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+declare (strict_types=1);
+namespace Sylius\Bundle\Mailer_Bundle\Console\Command\Dumper;
 
-declare(strict_types=1);
-
-namespace Sylius\Bundle\MailerBundle\Console\Command\Dumper;
-
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-
-interface DumperInterface
+use Symfony\Component\Console\Input\Input_Interface;
+use Symfony\Component\Console\Output\Output_Interface;
+interface Dumper_Interface
 {
-    public function dump(InputInterface $input, OutputInterface $output): void;
+    public function dump(Input_Interface $input, Output_Interface $output): void;
 }

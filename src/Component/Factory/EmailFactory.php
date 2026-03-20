@@ -8,17 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Sylius\Component\Mailer\Factory;
 
 use Sylius\Component\Mailer\Model\Email;
-use Sylius\Component\Mailer\Model\EmailInterface;
-
-class EmailFactory implements EmailFactoryInterface
+use Sylius\Component\Mailer\Model\Email_Interface;
+class Email_Factory implements Email_Factory_Interface
 {
-    public function createNew(): EmailInterface
+    public function create_new(): Email_Interface
     {
         return new Email();
     }

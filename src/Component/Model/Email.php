@@ -8,111 +8,85 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Sylius\Component\Mailer\Model;
 
-final class Email implements EmailInterface
+final class Email implements Email_Interface
 {
     private string|int|null $id = null;
-
     private ?string $code = null;
-
     private bool $enabled = true;
-
     private ?string $subject = null;
-
     private ?string $content = null;
-
     private ?string $template = null;
-
-    private ?string $senderName = null;
-
-    private ?string $senderAddress = null;
-
-    public function getId(): string|int|null
+    private ?string $sender_name = null;
+    private ?string $sender_address = null;
+    public function get_id(): string|int|null
     {
         return $this->id;
     }
-
-    public function getCode(): ?string
+    public function get_code(): ?string
     {
         return $this->code;
     }
-
-    public function setCode(string $code): void
+    public function set_code(string $code): void
     {
         $this->code = $code;
     }
-
-    public function isEnabled(): bool
+    public function is_enabled(): bool
     {
         return $this->enabled;
     }
-
-    public function setEnabled(bool $enabled): void
+    public function set_enabled(bool $enabled): void
     {
         $this->enabled = $enabled;
     }
-
     public function enable(): void
     {
         $this->enabled = true;
     }
-
     public function disable(): void
     {
         $this->enabled = false;
     }
-
-    public function getSubject(): ?string
+    public function get_subject(): ?string
     {
         return $this->subject;
     }
-
-    public function setSubject(string $subject): void
+    public function set_subject(string $subject): void
     {
         $this->subject = $subject;
     }
-
-    public function getContent(): ?string
+    public function get_content(): ?string
     {
         return $this->content;
     }
-
-    public function setContent(string $content): void
+    public function set_content(string $content): void
     {
         $this->content = $content;
     }
-
-    public function getTemplate(): ?string
+    public function get_template(): ?string
     {
         return $this->template;
     }
-
-    public function setTemplate(string $template): void
+    public function set_template(string $template): void
     {
         $this->template = $template;
     }
-
-    public function getSenderName(): ?string
+    public function get_sender_name(): ?string
     {
-        return $this->senderName;
+        return $this->sender_name;
     }
-
-    public function setSenderName(string $senderName): void
+    public function set_sender_name(string $sender_name): void
     {
-        $this->senderName = $senderName;
+        $this->sender_name = $sender_name;
     }
-
-    public function getSenderAddress(): ?string
+    public function get_sender_address(): ?string
     {
-        return $this->senderAddress;
+        return $this->sender_address;
     }
-
-    public function setSenderAddress(string $senderAddress): void
+    public function set_sender_address(string $sender_address): void
     {
-        $this->senderAddress = $senderAddress;
+        $this->sender_address = $sender_address;
     }
 }
