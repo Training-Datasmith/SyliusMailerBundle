@@ -3,5 +3,5 @@ parameters:
     secret: "Three can keep a secret, if two of them are dead."
 
 services:
-    App\Modifier\EmailSenderNameModifier:
+    App\Modifier\Email_Sender_Name_Modifier:
         tags: ['sylius_mailer.email_modifier']
